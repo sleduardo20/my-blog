@@ -1,0 +1,36 @@
+export default {
+  font: {
+    family: 'Nunito',
+    size: {
+      xlg: '5.6rem',
+      lg: '4.8rem',
+      md: '1.6rem',
+      sm: '1.4rem',
+      xsm: '1.2rem',
+    },
+    weightLight: 300,
+    weightRegular: 400,
+    weightMedium: 500,
+    weightBold: 700,
+  },
+  spacings: {
+    xxlg: '4.8rem',
+    xlg: '3.2rem',
+    lg: '2.4rem',
+    md: '1.6rem',
+    sm: '1.2rem',
+    xs: '0.8rem',
+    xss: '0.4rem',
+  },
+  colors: {
+    white: '#ffffff',
+    gray100: '#e1e1e6',
+    gray300: '#a8a8b3',
+    gray700: '#929297',
+    gray850: '#29292e',
+    gray800: '#1f2729',
+    gray900: '#121214',
+    cyan500: '#61dafb',
+    yellow500: '#eba417',
+  },
+} as const;
