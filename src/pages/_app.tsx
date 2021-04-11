@@ -1,10 +1,10 @@
-import { AppProps } from 'next/app';
-import Head from 'next/head';
-import { ThemeProvider } from 'styled-components';
+import { AppProps } from "next/app";
+import Head from "next/head";
+import { ThemeProvider } from "styled-components";
 
-import GlobalStyles from 'styles/globalStyles';
+import GlobalStyles from "styles/globalStyles";
 
-import theme from '../styles/theme';
+import theme from "../styles/theme";
 
 function App({ Component, pageProps }: AppProps) {
   return (
