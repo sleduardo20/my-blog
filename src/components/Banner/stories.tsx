@@ -1,10 +1,10 @@
-import { Meta, Story } from '@storybook/react';
+import { Meta, Story } from "@storybook/react";
 
-import { Banner } from '.';
+import { Banner } from ".";
 
 export default {
-  title: 'components/Banner',
+  title: "components/Banner",
   component: Banner,
 } as Meta;
 
-export const Basic: Story = args => <Banner {...args} />;
+export const Basic: Story = (args) => <Banner {...args} />;
