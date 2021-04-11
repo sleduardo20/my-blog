@@ -2,8 +2,8 @@ export default {
   font: {
     family: 'Nunito, sans-serif',
     size: {
-      xlg: '5.6rem',
-      lg: '4.8rem',
+      xlg: '3.2rem',
+      lg: '2.4rem',
       md: '1.6rem',
       sm: '1.4rem',
       xsm: '1.2rem',
