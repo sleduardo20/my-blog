@@ -45,12 +45,12 @@ export default createGlobalStyle`
   body, input, textarea, button{
   font-family: ${({ theme }) => theme.font.family};
   font-size: ${({ theme }) => theme.font.size.md};
-  color: ${({ theme }) => theme.colors.white};
+  color: ${({ theme }) => theme.colors.gray800};
   line-height: 22px;
   }
 
   body {
-    background: ${({ theme }) => theme.colors.gray900};
+    background: ${({ theme }) => theme.colors.white};
 
   }
 

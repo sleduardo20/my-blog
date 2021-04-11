@@ -1,6 +1,6 @@
 export default {
   font: {
-    family: 'Nunito',
+    family: 'Nunito, sans-serif',
     size: {
       xlg: '5.6rem',
       lg: '4.8rem',
@@ -23,14 +23,11 @@ export default {
     xss: '0.4rem',
   },
   colors: {
-    white: '#ffffff',
+    white: '#F6F6F6',
     gray100: '#e1e1e6',
     gray300: '#a8a8b3',
-    gray700: '#929297',
-    gray850: '#29292e',
     gray800: '#1f2729',
-    gray900: '#121214',
-    cyan500: '#61dafb',
-    yellow500: '#eba417',
+    darkBlue: '#364F6B',
+    yellow500: '#EBA417',
   },
 } as const;
