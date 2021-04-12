@@ -5,12 +5,7 @@ import * as S from "./styles";
 export const Banner = () => {
   return (
     <S.Wrapper>
-      <Image
-        src="/img/banner.jpg"
-        layout="responsive"
-        width={1400}
-        height={348}
-      />
+      <Image src="/img/banner.jpg" layout="fill" objectFit="cover" />
     </S.Wrapper>
   );
 };
