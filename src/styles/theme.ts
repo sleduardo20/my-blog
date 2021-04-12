@@ -8,10 +8,15 @@ export default {
       sm: "1.4rem",
       xsm: "1.2rem",
     },
+    lineHeight: {
+      xlg: "3.2rem",
+      lg: "2.8rem",
+      md: "2.2rem",
+    },
     weightLight: 300,
     weightRegular: 400,
-    weightMedium: 500,
-    weightBold: 700,
+    weightMedium: 700,
+    weightBold: 900,
   },
   spacings: {
     xxlg: "4.8rem",
@@ -23,7 +28,8 @@ export default {
     xss: "0.4rem",
   },
   colors: {
-    white: "#F6F6F6",
+    white: "#FFFFFF",
+    white100: "#F6F6F6",
     gray100: "#e1e1e6",
     gray300: "#a8a8b3",
     gray800: "#1f2729",
