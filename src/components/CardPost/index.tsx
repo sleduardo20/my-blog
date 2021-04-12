@@ -2,12 +2,13 @@ import Image from "next/image";
 
 import * as S from "./styles";
 
+import { getFormatDate } from "../../util/getFormatDate";
+
 export interface CardPostProps {
   src: string;
   title: string;
   subtitle: string;
   publisher: string;
-  timeRead: string;
 }
 
 export const CardPost = ({
@@ -15,7 +16,6 @@ export const CardPost = ({
   title,
   subtitle,
   publisher,
-  timeRead,
 }: CardPostProps) => {
   return (
     <S.Wrapper>
@@ -33,9 +33,7 @@ export const CardPost = ({
 
           <p>{subtitle}</p>
 
-          <span>
-            {publisher} | {timeRead} min read
-          </span>
+          <span>{getFormatDate(publisher)} | Leitura 4 min</span>
         </S.CollunInfo>
       </S.Colluns>
     </S.Wrapper>

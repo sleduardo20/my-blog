@@ -5,6 +5,5 @@ export default {
     "Configurando o Tema com styled-components e typescript em projetos React",
   subtitle:
     "Nós como Devs devemos ser organizados e detalhistas, temos que planejar cada linha de código de uma forma que no futuro quando olhamos novamente aquele código ele por se só seja auto explicativo e que outros devs possa entender o que está escrito",
-  publisher: "Oct 21, 2021",
-  timeRead: "4",
+  publisher: "2021-04-12 00:00:00:000",
 };
