@@ -6,8 +6,6 @@ export const Wrapper = styled.header`
     width: 100%;
     height: 10.3rem;
     background: ${theme.colors.gray800};
-    color: ${theme.colors.yellow500};
-    font-size: ${theme.font.size.xlg};
   `}
 `;
 
@@ -20,8 +18,10 @@ export const Content = styled.div`
     justify-content: space-between;
 
     h1 {
+      color: ${theme.colors.yellow500};
       flex: 1;
       margin-left: 36.2rem;
+      font-size: ${theme.font.size.xxlg};
     }
 
     ${media.lessThan("medium")`
@@ -33,7 +33,6 @@ export const Content = styled.div`
 
       h1 {
           flex: 0;
-          font-size: ${theme.font.size.lg};
           margin-left: 0;
         }
     `}
