@@ -8,12 +8,14 @@ export const Header = () => {
     <S.Wrapper>
       <Container>
         <S.Content>
-          <Image
-            src="/img/logo.svg"
-            height={47}
-            width={188}
-            alt="logo eduardo lima"
-          />
+          <S.Logo>
+            <Image
+              src="/img/logo.svg"
+              layout="fill"
+              objectFit="contain"
+              alt="logo eduardo lima"
+            />
+          </S.Logo>
           <h1>BLOG</h1>
         </S.Content>
       </Container>

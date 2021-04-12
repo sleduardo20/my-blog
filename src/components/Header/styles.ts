@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import media from "styled-media-query";
 
 export const Wrapper = styled.header`
   ${({ theme }) => css`
@@ -13,7 +14,7 @@ export const Wrapper = styled.header`
 export const Content = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    padding: ${theme.spacings.lg} 0;
+    padding: ${theme.spacings.lg} ${theme.spacings.sm};
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -22,5 +23,30 @@ export const Content = styled.div`
       flex: 1;
       margin-left: 36.2rem;
     }
+
+    ${media.lessThan("medium")`
+      justify-content:center;
+      
+      img {
+        display: none;
+      }
+
+      h1 {
+          flex: 0;
+          font-size: ${theme.font.size.lg};
+          margin-left: 0;
+        }
+    `}
   `}
+`;
+
+export const Logo = styled.div`
+  position: relative;
+  width: 18.8rem;
+  height: 4.7rem;
+
+  ${media.lessThan("medium")`
+        display: none;
+      
+    `}
 `;
