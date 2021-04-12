@@ -50,7 +50,7 @@ export default createGlobalStyle`
   }
 
   body {
-    background: ${({ theme }) => theme.colors.white};
+    background: ${({ theme }) => theme.colors.white100};
 
   }
 
