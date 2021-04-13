@@ -2,12 +2,12 @@ import Image from "next/image";
 import * as S from "./styles";
 
 export interface ContentProps {
-  title?: string;
+  titlecontent?: string;
   p1: string;
   p2?: string;
   p3?: string;
   code?: string;
-  image?: {
+  imagecontent?: {
     url: string;
     alt: string;
     dimensions: {
@@ -17,10 +17,17 @@ export interface ContentProps {
   };
 }
 
-export const Content = ({ title, p1, p2, p3, code, image }: ContentProps) => {
+export const Content = ({
+  titlecontent,
+  p1,
+  p2,
+  p3,
+  code,
+  imagecontent,
+}: ContentProps) => {
   return (
     <S.Container>
-      {!!title && <h2>{title}</h2>}
+      {!!titlecontent && <h2>{titlecontent}</h2>}
 
       <S.Text>{p1}</S.Text>
 
@@ -35,13 +42,13 @@ export const Content = ({ title, p1, p2, p3, code, image }: ContentProps) => {
         </S.Code>
       )}
 
-      {!!image && (
+      {!!imagecontent && (
         <S.Figure>
           <Image
             className="post-image"
-            src={image.url}
-            width={image.dimensions.width}
-            height={image.dimensions.height}
+            src={imagecontent.url}
+            width={imagecontent.dimensions.width}
+            height={imagecontent.dimensions.height}
           />
         </S.Figure>
       )}
