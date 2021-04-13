@@ -1,34 +1,49 @@
 import Image from "next/image";
 import Link from "next/link";
+import { GetStaticPaths, GetStaticProps } from "next";
+
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
+import Prismic from "@prismicio/client";
+import { getClientPrimisc } from "services/prismic";
+
 import { Header } from "components/Header";
-import { Content } from "components/Content";
+import { Content, ContentProps } from "components/Content";
+
+import { getFormatDate } from "util/getFormatDate";
 import * as S from "./styles";
 
-import mockContent from "../../components/Content/mock";
+interface PostProps {
+  title: string;
+  publisher: string;
+  imagepost: {
+    url: string;
+  };
+  content: ContentProps[];
+}
 
-const Post = () => {
+const Post = ({ title, publisher, imagepost, content }: PostProps) => {
   return (
     <S.Container>
       <Header />
       <S.Wrapper>
         <h1>
-          Configurando o Tema com styled-components e typescript em projetos
-          React
-          <span> Oct 21, 2020 | 4 min read </span>
+          {title}
+          <span>{getFormatDate(publisher)} | 4 min read </span>
         </h1>
 
         <S.PostImage>
           <Image
             className="post-image"
-            src="https://images.unsplash.com/photo-1512486130939-2c4f79935e4f?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1600&q=80"
+            src={imagepost.url}
             layout="fill"
             objectFit="cover"
             objectPosition="center"
           />
         </S.PostImage>
-        <Content {...mockContent} />
+        {content.map((item) => (
+          <Content key={item.p1} {...item} />
+        ))}
         <S.NextPreviowsPosts>
           <div>
             <span>Post Anterior</span>
@@ -64,3 +79,53 @@ const Post = () => {
 };
 
 export default Post;
+
+export const getStaticPaths: GetStaticPaths = async () => {
+  const prismic = getClientPrimisc();
+
+  const response = await prismic.query(
+    [Prismic.predicates.at("document.type", "post")],
+    {
+      pageSize: 10,
+    }
+  );
+
+  const paths = response.results.map((item) => ({
+    params: { slug: item.uid },
+  }));
+
+  return {
+    paths,
+    fallback: false,
+  };
+};
+
+export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
+  const { slug } = params;
+
+  const prismic = getClientPrimisc();
+
+  const { data, first_publication_date } = await prismic.getByUID(
+    "post",
+    String(slug),
+    {}
+  );
+
+  const content = data.content.map((item: ContentProps) => ({
+    titlecontent: item.titlecontent,
+    p1: item.p1,
+    p2: item.p2,
+    p3: item.p3,
+    code: item.code,
+    imagecontent: item.imagecontent,
+  }));
+
+  return {
+    props: {
+      title: data.title,
+      imagepost: data.imagepost,
+      publisher: first_publication_date || "",
+      content,
+    },
+  };
+};
