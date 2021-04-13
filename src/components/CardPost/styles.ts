@@ -43,11 +43,19 @@ export const CollunInfo = styled.div`
     flex: 1;
     padding: ${theme.spacings.sm} ${theme.spacings.xs} ${theme.spacings.xs};
 
+    ${media.lessThan("medium")`
+      padding: ${theme.spacings.xss} ${theme.spacings.xs} ${theme.spacings.xs};
+    `}
+
     h3 {
       font-size: ${theme.font.size.md};
       font-weight: ${theme.font.weightBold};
       margin-bottom: ${theme.spacings.md};
       color: ${theme.colors.gray800};
+
+      ${media.lessThan("medium")`
+        margin-bottom: ${theme.spacings.xss};
+      `}
     }
 
     p {
@@ -58,8 +66,9 @@ export const CollunInfo = styled.div`
       -webkit-line-clamp: 5;
       -webkit-box-orient: vertical;
 
-      font-size: ${theme.font.size.md};
+      font-size: ${theme.font.size.sm};
       font-weight: ${theme.font.weightLight};
+      line-height: ${theme.font.lineHeight.xsm};
       color: ${theme.colors.gray800};
       margin-bottom: ${theme.spacings.xlg};
 
@@ -72,7 +81,6 @@ export const CollunInfo = styled.div`
 
     span {
       display: block;
-
       font-size: ${theme.font.size.xsm};
       font-weight: ${theme.font.weightRegular};
       color: ${theme.colors.gray300};
