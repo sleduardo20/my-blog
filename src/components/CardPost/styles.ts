@@ -43,6 +43,17 @@ export const CollunInfo = styled.div`
     flex: 1;
     padding: ${theme.spacings.sm} ${theme.spacings.xs} ${theme.spacings.xs};
 
+    &:hover {
+      cursor: pointer;
+      h3 {
+        color: ${theme.colors.yellow500};
+      }
+
+      p {
+        text-decoration: underline;
+      }
+    }
+
     ${media.lessThan("medium")`
       padding: ${theme.spacings.xss} ${theme.spacings.xs} ${theme.spacings.xs};
     `}
@@ -52,6 +63,7 @@ export const CollunInfo = styled.div`
       font-weight: ${theme.font.weightBold};
       margin-bottom: ${theme.spacings.md};
       color: ${theme.colors.gray800};
+      transition: color 0.2s;
 
       ${media.lessThan("medium")`
         margin-bottom: ${theme.spacings.xss};

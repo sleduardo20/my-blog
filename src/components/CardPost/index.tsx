@@ -1,18 +1,21 @@
+import Link from "next/link";
 import Image from "next/image";
-
-import * as S from "./styles";
 
 import { getFormatDate } from "../../util/getFormatDate";
 
+import * as S from "./styles";
+
 export interface CardPostProps {
-  src: string;
+  slug?: string;
   title: string;
   subtitle: string;
   publisher: string;
+  img: { url: string };
 }
 
 export const CardPost = ({
-  src,
+  slug,
+  img,
   title,
   subtitle,
   publisher,
@@ -22,19 +25,23 @@ export const CardPost = ({
       <S.Colluns>
         <S.CollunImage>
           <Image
-            src={src}
+            src={img.url}
             layout="fill"
             objectFit="cover"
             objectPosition="center"
           />
         </S.CollunImage>
-        <S.CollunInfo>
-          <h3>{title}</h3>
+        <Link href={`/post/${slug}`}>
+          <S.CollunInfo>
+            <a>
+              <h3>{title}</h3>
+            </a>
 
-          <p>{subtitle}</p>
+            <p>{subtitle}</p>
 
-          <span>{getFormatDate(publisher)} | Leitura 4 min</span>
-        </S.CollunInfo>
+            <span>{getFormatDate(publisher)} | Leitura 4 min</span>
+          </S.CollunInfo>
+        </Link>
       </S.Colluns>
     </S.Wrapper>
   );
