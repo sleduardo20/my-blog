@@ -24,7 +24,7 @@ export const Header = () => {
 
           <Link href="/" passHref>
             <a>
-              <h1>BLOG</h1>
+              <h1>Blog</h1>
             </a>
           </Link>
           <ReactTooltip
