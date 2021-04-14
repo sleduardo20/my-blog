@@ -1,4 +1,5 @@
 import { GetStaticProps } from "next";
+
 import Prismic from "@prismicio/client";
 
 import { Banner } from "components/Banner";
@@ -43,9 +44,12 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     Prismic.predicates.at("document.type", "banner"),
   ]);
 
-  const cardsResponse = await prismic.query([
-    Prismic.predicates.at("document.type", "post"),
-  ]);
+  const cardsResponse = await prismic.query(
+    [Prismic.predicates.at("document.type", "post")],
+    {
+      orderings: "[document.last_publication_date desc]",
+    }
+  );
 
   const banner = String(
     bannerResponse.results.map((result) => result.data.src)
