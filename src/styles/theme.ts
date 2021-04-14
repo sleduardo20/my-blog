@@ -36,6 +36,7 @@ export default {
     gray300: "#a8a8b3",
     gray800: "#1f2729",
     darkBlue: "#364F6B",
+    lightBlue: "#83B5EE",
     yellow500: "#EBA417",
   },
 } as const;
