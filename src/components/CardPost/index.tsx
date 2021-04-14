@@ -25,6 +25,7 @@ export const CardPost = ({
       <S.Colluns>
         <S.CollunImage>
           <Image
+            className="image-post"
             src={img.url}
             layout="fill"
             objectFit="cover"

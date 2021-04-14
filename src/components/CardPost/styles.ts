@@ -5,7 +5,7 @@ export const Wrapper = styled.div`
   ${({ theme }) => css`
     position: relative;
     width: 47rem;
-    height: 28rem;
+    height: 26rem;
     border: 1px solid ${theme.colors.gray100};
     border-radius: ${theme.spacings.xss};
     background: ${theme.colors.white};
@@ -32,6 +32,10 @@ export const CollunImage = styled.div`
   height: 100%;
   border-radius: 4px;
 
+  .image-post {
+    border-radius: 4px 0 0 4px;
+  }
+
   ${media.lessThan("medium")`
       display: none;
   `}
@@ -41,7 +45,10 @@ export const CollunInfo = styled.div`
   ${({ theme }) => css`
     height: 100%;
     flex: 1;
-    padding: ${theme.spacings.sm} ${theme.spacings.xs} ${theme.spacings.xs};
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: ${theme.spacings.lg} ${theme.spacings.xs} ${theme.spacings.xs};
 
     &:hover {
       cursor: pointer;
@@ -61,7 +68,6 @@ export const CollunInfo = styled.div`
     h3 {
       font-size: ${theme.font.size.md};
       font-weight: ${theme.font.weightBold};
-      margin-bottom: ${theme.spacings.md};
       color: ${theme.colors.gray800};
       transition: color 0.2s;
 
