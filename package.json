@@ -28,7 +28,9 @@
     "prismic-dom": "^2.2.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-github-corner": "^2.5.0",
     "react-icons": "^4.2.0",
+    "react-tooltip": "^4.2.17",
     "styled-components": "^5.2.3",
     "styled-media-query": "^2.1.2",
     "swiper": "^6.5.6"
