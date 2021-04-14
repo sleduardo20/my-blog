@@ -18,22 +18,19 @@ export const Content = styled.div`
     justify-content: space-between;
 
     h1 {
+      margin-right: 12rem;
       color: ${theme.colors.yellow500};
-      flex: 1;
-      margin-left: 36.2rem;
       font-size: ${theme.font.size.xxlg};
     }
 
     ${media.lessThan("medium")`
-      justify-content:center;
-      
-      img {
-        display: none;
-      }
-
+      justify-content: center;
+ 
+      svg {
+          display: none;
+        }
       h1 {
-          flex: 0;
-          margin-left: 0;
+          margin-right: 0;
         }
     `}
   `}
