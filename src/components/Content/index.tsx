@@ -1,13 +1,16 @@
 import Image from "next/image";
+import { RichText } from "prismic-dom";
+
 import * as S from "./styles";
 
+type Body = {
+  text: string;
+};
+
 export interface ContentProps {
-  titlecontent?: string;
-  p1: string;
-  p2?: string;
-  p3?: string;
-  code?: string;
-  imagecontent?: {
+  heading?: string;
+  body: Body[];
+  imagecontent: {
     url: string;
     alt: string;
     dimensions: {
@@ -17,41 +20,18 @@ export interface ContentProps {
   };
 }
 
-export const Content = ({
-  titlecontent,
-  p1,
-  p2,
-  p3,
-  code,
-  imagecontent,
-}: ContentProps) => {
+export const Content = ({ heading, body, imagecontent }: ContentProps) => {
   return (
     <S.Container>
-      {!!titlecontent && <h2>{titlecontent}</h2>}
-
-      <S.Text>{p1}</S.Text>
-
-      {!!p2 && <S.Text>{p2}</S.Text>}
-      {!!p3 && <S.Text>{p3}</S.Text>}
-
-      {!!code && (
-        <S.Code>
-          <pre>
-            <code>{code}</code>
-          </pre>
-        </S.Code>
-      )}
-
-      {!!imagecontent && (
-        <S.Figure>
-          <Image
-            className="post-image"
-            src={imagecontent.url}
-            width={imagecontent.dimensions.width}
-            height={imagecontent.dimensions.height}
-          />
-        </S.Figure>
-      )}
+      {!!heading && <h2>{heading}</h2>}
+      <S.Body dangerouslySetInnerHTML={{ __html: RichText.asHtml(body) }} />
+      <S.Figure>
+        <img
+          className="post-image"
+          src={imagecontent.url}
+          alt={imagecontent.alt}
+        />
+      </S.Figure>
     </S.Container>
   );
 };
