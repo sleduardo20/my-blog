@@ -2,10 +2,8 @@ import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 export const Container = styled.div`
-  ${({ theme }) => css`
-    width: max(100%, 70rem);
-    margin: 0 auto;
-  `}
+  width: max(100%, 70rem);
+  margin: 0 auto;
 `;
 
 export const Wrapper = styled.main`

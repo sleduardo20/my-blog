@@ -1,5 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
+import { Params } from "next/dist/next-server/server/router";
+
 import { GetStaticPaths, GetStaticProps } from "next";
 
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
@@ -11,6 +13,7 @@ import { Header } from "components/Header";
 import { Content, ContentProps } from "components/Content";
 
 import { getFormatDate } from "util/getFormatDate";
+
 import * as S from "./styles";
 
 interface PostProps {
@@ -41,9 +44,11 @@ const Post = ({ title, publisher, imagepost, content }: PostProps) => {
             objectPosition="center"
           />
         </S.PostImage>
+
         {content.map((item) => (
-          <Content key={item.p1} {...item} />
+          <Content key={item.heading} {...item} />
         ))}
+
         <S.NextPreviowsPosts>
           <div>
             <span>Post Anterior</span>
@@ -100,7 +105,9 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
+export const getStaticProps: GetStaticProps<PostProps> = async ({
+  params,
+}: Params) => {
   const { slug } = params;
 
   const prismic = getClientPrimisc();
@@ -111,21 +118,12 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({ params }) => {
     {}
   );
 
-  const content = data.content.map((item: ContentProps) => ({
-    titlecontent: item.titlecontent,
-    p1: item.p1,
-    p2: item.p2,
-    p3: item.p3,
-    code: item.code,
-    imagecontent: item.imagecontent,
-  }));
-
   return {
     props: {
       title: data.title,
       imagepost: data.imagepost,
       publisher: first_publication_date || "",
-      content,
+      content: data.content,
     },
   };
 };
