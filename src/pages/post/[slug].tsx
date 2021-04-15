@@ -61,7 +61,6 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({
   const previousPost = posts[indexPostPreviow] || "";
   const nextPost = posts[indexNextPost] || "";
 
-  console.log(previousPost, nextPost);
   return {
     props: {
       title: data.title,

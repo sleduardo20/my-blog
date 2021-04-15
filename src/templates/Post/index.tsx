@@ -1,5 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
+import { useRouter } from "next/dist/client/router";
+
+import { useEffect, useState } from "react";
 
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
@@ -7,7 +10,7 @@ import { getFormatDate } from "util/getFormatDate";
 
 import { Header } from "components/Header";
 import { Content, ContentProps } from "components/Content";
-
+import { RichText } from "prismic-dom";
 import * as S from "./styles";
 
 export interface PostProps {
@@ -39,6 +42,30 @@ export const TemplatePost = ({
   previousPost,
   nextPost,
 }: PostProps) => {
+  const router = useRouter();
+
+  const [totalWordsPost, setTotalWordsPost] = useState([]);
+
+  if (router.isFallback) {
+    return <h2>Carregando...</h2>;
+  }
+
+  useEffect(() => {
+    const wordsContent = content.reduce((acc, item, index) => {
+      acc[index] = item.heading
+        ? item.heading.split(" ").length
+        : 0 + RichText.asText(item.body).split(" ").length;
+
+      return acc;
+    }, []);
+
+    setTotalWordsPost(wordsContent);
+  }, [content]);
+
+  const totalWords = totalWordsPost.reduce((acc, word) => acc + word, 0);
+
+  const readingTime = Math.round(totalWords / 90);
+
   return (
     <S.Container>
       <Header />
@@ -48,7 +75,9 @@ export const TemplatePost = ({
         <Link href={linkauthor} passHref>
           <a target="_blank"> @{author}</a>
         </Link>
-        <span>{getFormatDate(publisher)} | 4 min read </span>
+        <span>
+          {getFormatDate(publisher)} | {readingTime} min
+        </span>
 
         <S.PostImage>
           <Image
