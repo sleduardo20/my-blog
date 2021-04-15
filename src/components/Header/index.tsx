@@ -16,8 +16,6 @@ export const Header = () => {
               src="/img/logo.svg"
               width={188}
               height={47}
-              // layout="responsive"
-              // objectFit="contain"
               alt="logo eduardo lima"
             />
           </S.Logo>
@@ -30,9 +28,8 @@ export const Header = () => {
           <ReactTooltip
             id="github"
             type="light"
-            place="left"
             effect="solid"
-            offset={{ right: 90 }}
+            offset={{ right: 116 }}
           >
             Este projeto é open-source, confira o código nesse link 😊.
           </ReactTooltip>
@@ -42,7 +39,7 @@ export const Header = () => {
             data-for="github"
             href="https://github.com/sleduardo20/my-blog"
             target="_blank"
-            size={103}
+            size={65}
             bannerColor="#F6F6F6"
             octoColor="#1f2729"
           />
