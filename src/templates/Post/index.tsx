@@ -46,12 +46,8 @@ export const TemplatePost = ({
 
   const [totalWordsPost, setTotalWordsPost] = useState([]);
 
-  if (router.isFallback) {
-    return <h2>Carregando...</h2>;
-  }
-
   useEffect(() => {
-    const wordsContent = content.reduce((acc, item, index) => {
+    const wordsContent = content.reduce((acc: any, item, index) => {
       acc[index] = item.heading
         ? item.heading.split(" ").length
         : 0 + RichText.asText(item.body).split(" ").length;
@@ -61,6 +57,10 @@ export const TemplatePost = ({
 
     setTotalWordsPost(wordsContent);
   }, [content]);
+
+  if (router.isFallback) {
+    return <h2>Carregando...</h2>;
+  }
 
   const totalWords = totalWordsPost.reduce((acc, word) => acc + word, 0);
 
