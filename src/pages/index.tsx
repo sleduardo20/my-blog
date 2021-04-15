@@ -2,40 +2,16 @@ import { GetStaticProps } from "next";
 
 import Prismic from "@prismicio/client";
 
-import { Banner } from "components/Banner";
-import { CardPost, CardPostProps } from "components/CardPost";
-import { Container } from "components/Container";
-import { Header } from "components/Header";
+import { Home, HomeProps } from "templates/Home";
+import { CardPostProps } from "components/CardPost";
 
 import { getClientPrimisc } from "../services/prismic";
 
-import * as S from "./styles";
-
-interface HomeProps {
-  srcBanner: string;
-  cards: CardPostProps[];
-}
-
-const Home = ({ srcBanner, cards }: HomeProps) => {
-  return (
-    <S.Wrapper>
-      <Header />
-      <Banner src={srcBanner} />
-      <Container>
-        <S.Main>
-          <h1>Posts Destaques</h1>
-          <S.Cards>
-            {cards.map((card) => (
-              <CardPost key={card.title} {...card} />
-            ))}
-          </S.Cards>
-        </S.Main>
-      </Container>
-    </S.Wrapper>
-  );
+const Index = ({ ...props }: HomeProps) => {
+  return <Home {...props} />;
 };
 
-export default Home;
+export default Index;
 
 export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const prismic = getClientPrimisc();
@@ -54,10 +30,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
   const banner = String(
     bannerResponse.results.map((result) => result.data.src)
   );
-
-  if (!cardsResponse) {
-    throw new Error("Error request prismic");
-  }
 
   const cards = cardsResponse.results.map(
     (card): CardPostProps => ({
