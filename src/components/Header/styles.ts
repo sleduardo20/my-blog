@@ -12,7 +12,7 @@ export const Wrapper = styled.header`
 export const Content = styled.div`
   ${({ theme }) => css`
     width: 100%;
-    padding: ${theme.spacings.lg} ${theme.spacings.sm};
+    padding: ${theme.spacings.lg} 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -24,8 +24,6 @@ export const Content = styled.div`
     }
 
     ${media.lessThan("medium")`
-      justify-content: center;
- 
       svg {
           display: none;
         }
@@ -40,9 +38,4 @@ export const Logo = styled.div`
   position: relative;
   width: 18.8rem;
   height: 4.7rem;
-
-  ${media.lessThan("medium")`
-        display: none;
-      
-    `}
 `;

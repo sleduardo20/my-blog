@@ -3,7 +3,6 @@ import media from "styled-media-query";
 
 export const Wrapper = styled.div`
   ${({ theme }) => css`
-    position: relative;
     width: 47rem;
     height: 26rem;
     border: 1px solid ${theme.colors.gray100};
@@ -22,8 +21,6 @@ export const Colluns = styled.div`
   width: 100%;
   height: 100%;
   display: flex;
-  align-items: center;
-  justify-content: center;
 `;
 
 export const CollunImage = styled.div`
@@ -81,7 +78,7 @@ export const CollunInfo = styled.div`
       overflow-y: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 5;
+      -webkit-line-clamp: 4;
       -webkit-box-orient: vertical;
 
       font-size: ${theme.font.size.sm};
@@ -100,7 +97,6 @@ export const CollunInfo = styled.div`
     span {
       display: block;
       font-size: ${theme.font.size.xsm};
-      font-weight: ${theme.font.weightRegular};
       color: ${theme.colors.gray300};
     }
   `}

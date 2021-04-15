@@ -1,7 +1,9 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
-export const Wrapper = styled.div``;
+export const Wrapper = styled.div`
+  width: max(100%, 70rem);
+`;
 
 export const Main = styled.main`
   ${({ theme }) => css`
@@ -11,10 +13,8 @@ export const Main = styled.main`
     h1 {
       font-size: ${theme.font.size.lg};
       font-weight: ${theme.font.weightBold};
-      line-height: ${theme.font.lineHeight.md};
       padding-bottom: ${theme.spacings.lg};
       margin-bottom: ${theme.spacings.xxlg};
-
       border-bottom: 1px solid ${theme.colors.gray100};
     }
   `}

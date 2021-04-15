@@ -1,4 +1,5 @@
 import styled, { css } from "styled-components";
+import media from "styled-media-query";
 
 export const Container = styled.aside`
   ${({ theme }) => css`
@@ -14,6 +15,7 @@ export const Container = styled.aside`
     h2 {
       width: 100%;
       align-items: flex-start;
+      line-height: ${theme.font.lineHeight.md};
       margin-bottom: ${theme.spacings.lg};
     }
   `}
@@ -21,6 +23,9 @@ export const Container = styled.aside`
 
 export const Body = styled.div`
   ${({ theme }) => css`
+    width: max(100%, 70rem);
+    padding: ${theme.spacings.sm};
+
     p,
     li {
       text-align: justify;
@@ -37,10 +42,17 @@ export const Body = styled.div`
     }
 
     pre {
+      overflow-x: scroll;
+      font-size: ${theme.font.size.xsm};
+      font-weight: ${theme.font.weightLight};
       margin: ${theme.spacings.xs} auto;
       background: ${theme.colors.gray100};
       border-radius: 4px;
       padding: ${theme.spacings.sm};
+
+      ${media.lessThan("medium")`
+        font-size: ${theme.font.size.sm};
+      `}
     }
 
     a {

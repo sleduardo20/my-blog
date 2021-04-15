@@ -2,20 +2,19 @@ import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
 export const Container = styled.div`
-  width: max(100%, 70rem);
-  margin: 0 auto;
+  width: max(100%, 73rem);
 `;
 
 export const Wrapper = styled.main`
   ${({ theme }) => css`
-    width: 70rem;
-    margin: 5.4rem auto 0;
+    margin-top: 5.4rem;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     h1 {
+      max-width: 70rem;
       text-align: center;
       font-size: ${theme.font.size.xxlg};
       line-height: ${theme.font.lineHeight.lg};
@@ -43,7 +42,7 @@ export const PostImage = styled.div`
     max-width: 70rem;
     height: 45rem;
     border-radius: 8px;
-    margin-bottom: 0 auto ${theme.spacings.xxlg};
+    margin: 0 auto ${theme.spacings.xxlg};
 
     .post-image {
       border-radius: 8px;

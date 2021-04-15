@@ -16,6 +16,7 @@ export const Header = () => {
               src="/img/logo.svg"
               width={188}
               height={47}
+              layout="responsive"
               alt="logo eduardo lima"
             />
           </S.Logo>
