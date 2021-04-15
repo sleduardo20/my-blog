@@ -32,9 +32,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
   };
 };
 
-export const getStaticProps: GetStaticProps<PostProps> = async ({
-  params,
-}: Params) => {
+export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
   const { slug } = params;
 
   const prismic = getClientPrimisc();
