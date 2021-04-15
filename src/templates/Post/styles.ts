@@ -82,20 +82,20 @@ export const NextPreviowsPosts = styled.div`
 
     div {
       width: 52.6rem;
+      height: 100%;
 
-      padding: ${theme.spacings.xs};
+      padding: ${theme.spacings.xs} 0;
       display: flex;
       flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      border-right: 1px solid ${theme.colors.gray100};
 
       ${media.lessThan("medium")`
+        align-items: center;
         border-right: none;
         margin-bottom: ${theme.spacings.lg};
       `}
 
       span {
+        display: block;
         font-size: ${theme.font.size.sm};
         color: ${theme.colors.gray300};
         margin-bottom: ${theme.spacings.xs};
@@ -108,6 +108,7 @@ export const NextPreviowsPosts = styled.div`
     }
 
     a {
+      flex: 1;
       display: flex;
       align-items: center;
       justify-content: center;

@@ -39,12 +39,29 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({
 
   const prismic = getClientPrimisc();
 
-  const { data, first_publication_date } = await prismic.getByUID(
+  const { uid, data, first_publication_date } = await prismic.getByUID(
     "post",
     String(slug),
     {}
   );
 
+  const { results } = await prismic.query(
+    [Prismic.predicates.at("document.type", "post")],
+    {}
+  );
+
+  const indexPostPreviow = results.findIndex((post) => post.uid === uid) + 1;
+  const indexNextPost = results.findIndex((post) => post.uid === uid) - 1;
+
+  const posts = results.map((post) => ({
+    uid: post.uid,
+    title: post.data.title,
+  }));
+
+  const previousPost = posts[indexPostPreviow] || "";
+  const nextPost = posts[indexNextPost] || "";
+
+  console.log(previousPost, nextPost);
   return {
     props: {
       title: data.title,
@@ -53,6 +70,8 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({
       imagepost: data.imagepost,
       publisher: first_publication_date || "",
       content: data.content,
+      previousPost,
+      nextPost,
     },
   };
 };

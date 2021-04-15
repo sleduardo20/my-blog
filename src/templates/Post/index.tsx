@@ -19,6 +19,14 @@ export interface PostProps {
     url: string;
   };
   content: ContentProps[];
+  previousPost: {
+    uid: string;
+    title: string;
+  };
+  nextPost: {
+    uid: string;
+    title: string;
+  };
 }
 
 export const TemplatePost = ({
@@ -28,6 +36,8 @@ export const TemplatePost = ({
   publisher,
   imagepost,
   content,
+  previousPost,
+  nextPost,
 }: PostProps) => {
   return (
     <S.Container>
@@ -55,31 +65,29 @@ export const TemplatePost = ({
         ))}
 
         <S.NextPreviowsPosts>
-          <div>
-            <span>Post Anterior</span>
-            <Link href="http://#">
-              <a>
-                <RiArrowLeftSLine />
-                <strong>
-                  Beyond the hashtag: Applying semiotics to web design Beyond
-                  the hashtag: Applying semiotics to web design
-                </strong>
-              </a>
-            </Link>
-          </div>
+          {previousPost && (
+            <div>
+              <span>Post Anterior</span>
+              <Link href={`/post/${previousPost.uid}`}>
+                <a>
+                  <RiArrowLeftSLine />
+                  <strong>{previousPost.title}</strong>
+                </a>
+              </Link>
+            </div>
+          )}
 
-          <div>
-            <span>Proxímo Post</span>
-            <Link href="http://#">
-              <a>
-                <strong>
-                  Beyond the hashtag: Applying semiotics to web design Beyond
-                  the hashtag: Applying semiotics to web design
-                </strong>
-                <RiArrowRightSLine />
-              </a>
-            </Link>
-          </div>
+          {nextPost && (
+            <div>
+              <span>Proxímo Post</span>
+              <Link href={`/post/${nextPost.uid}`}>
+                <a>
+                  <strong>{nextPost.title}</strong>
+                  <RiArrowRightSLine />
+                </a>
+              </Link>
+            </div>
+          )}
         </S.NextPreviowsPosts>
 
         <h3>Comentarios</h3>
