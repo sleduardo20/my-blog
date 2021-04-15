@@ -12,6 +12,8 @@ import * as S from "./styles";
 
 export interface PostProps {
   title: string;
+  author: string;
+  linkauthor: string;
   publisher: string;
   imagepost: {
     url: string;
@@ -21,6 +23,8 @@ export interface PostProps {
 
 export const TemplatePost = ({
   title,
+  author,
+  linkauthor,
   publisher,
   imagepost,
   content,
@@ -29,10 +33,12 @@ export const TemplatePost = ({
     <S.Container>
       <Header />
       <S.Wrapper>
-        <h1>
-          {title}
-          <span>{getFormatDate(publisher)} | 4 min read </span>
-        </h1>
+        <h1>{title}</h1>
+
+        <Link href={linkauthor} passHref>
+          <a target="_blank"> @{author}</a>
+        </Link>
+        <span>{getFormatDate(publisher)} | 4 min read </span>
 
         <S.PostImage>
           <Image

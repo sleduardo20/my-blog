@@ -48,6 +48,8 @@ export const getStaticProps: GetStaticProps<PostProps> = async ({
   return {
     props: {
       title: data.title,
+      author: data.author,
+      linkauthor: data.linkauthor,
       imagepost: data.imagepost,
       publisher: first_publication_date || "",
       content: data.content,

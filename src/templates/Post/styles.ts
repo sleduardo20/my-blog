@@ -19,14 +19,19 @@ export const Wrapper = styled.main`
       font-size: ${theme.font.size.xxlg};
       line-height: ${theme.font.lineHeight.lg};
       margin-bottom: ${theme.spacings.lg};
+    }
 
-      span {
-        margin-top: ${theme.spacings.md};
-        display: block;
-        font-size: ${theme.font.size.sm};
-        font-weight: ${theme.font.weightLight};
-        color: ${theme.colors.gray300};
-      }
+    a,
+    span {
+      display: block;
+      font-size: ${theme.font.size.sm};
+      font-weight: ${theme.font.weightLight};
+      color: ${theme.colors.lightBlue};
+    }
+
+    span {
+      margin-top: ${theme.spacings.xss};
+      color: ${theme.colors.gray300};
     }
 
     ${media.lessThan("medium")`
@@ -42,7 +47,7 @@ export const PostImage = styled.div`
     max-width: 70rem;
     height: 45rem;
     border-radius: 8px;
-    margin: 0 auto ${theme.spacings.xxlg};
+    margin: ${theme.spacings.md} auto ${theme.spacings.xxlg};
 
     .post-image {
       border-radius: 8px;

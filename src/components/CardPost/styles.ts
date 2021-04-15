@@ -78,14 +78,14 @@ export const CollunInfo = styled.div`
       overflow-y: hidden;
       text-overflow: ellipsis;
       display: -webkit-box;
-      -webkit-line-clamp: 4;
+      -webkit-line-clamp: 3;
       -webkit-box-orient: vertical;
 
       font-size: ${theme.font.size.sm};
       font-weight: ${theme.font.weightLight};
       line-height: ${theme.font.lineHeight.xsm};
       color: ${theme.colors.gray800};
-      margin-bottom: ${theme.spacings.xlg};
+      margin: ${theme.spacings.sm} 0;
 
       ${media.lessThan("medium")`
           height: 4.8rem;

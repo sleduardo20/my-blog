@@ -9,6 +9,7 @@ export interface CardPostProps {
   slug?: string;
   title: string;
   subtitle: string;
+  author: string;
   publisher: string;
   img: { url: string };
 }
@@ -18,6 +19,7 @@ export const CardPost = ({
   img,
   title,
   subtitle,
+  author,
   publisher,
 }: CardPostProps) => {
   return (
@@ -40,7 +42,10 @@ export const CardPost = ({
 
             <p>{subtitle}</p>
 
-            <span>{getFormatDate(publisher)} | Leitura 4 min</span>
+            <div>
+              <span>{author}</span>
+              <span>{getFormatDate(publisher)} | Leitura 4 min</span>
+            </div>
           </S.CollunInfo>
         </Link>
       </S.Colluns>

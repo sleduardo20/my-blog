@@ -35,6 +35,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
     (card): CardPostProps => ({
       slug: card.uid,
       title: card.data.title,
+      author: card.data.author,
       subtitle: card.data.subtitle,
       img: card.data.imagepost,
       publisher: card.first_publication_date || "",
