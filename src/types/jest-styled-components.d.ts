@@ -1,6 +1,6 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 /* eslint-disable @typescript-eslint/ban-types */
-import { Plugin, NewPlugin } from 'pretty-format';
+import { Plugin, NewPlugin } from "pretty-format";
 
 declare global {
   namespace jest {
