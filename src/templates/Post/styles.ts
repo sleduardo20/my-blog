@@ -1,24 +1,28 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
-export const Container = styled.div`
-  width: max(100%, 73rem);
-`;
+export const Wrapper = styled.div``;
 
-export const Wrapper = styled.main`
+export const Main = styled.main`
   ${({ theme }) => css`
-    margin-top: 5.4rem;
+    width: 70rem;
+    max-width: 100%;
+    margin: 5.4rem auto 0;
+    padding: 0 ${theme.spacings.sm};
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     h1 {
-      max-width: 70rem;
       text-align: center;
       font-size: ${theme.font.size.xxlg};
       line-height: ${theme.font.lineHeight.lg};
       margin-bottom: ${theme.spacings.lg};
+
+      ${media.lessThan("medium")`
+        font-size: ${theme.font.size.xlg};
+      `}
     }
 
     a,
@@ -33,10 +37,6 @@ export const Wrapper = styled.main`
       margin-top: ${theme.spacings.xss};
       color: ${theme.colors.gray300};
     }
-
-    ${media.lessThan("medium")`
-      padding: 0 ${theme.spacings.sm};
-    `}
   `}
 `;
 
@@ -55,6 +55,7 @@ export const PostImage = styled.div`
 
     ${media.lessThan("medium")`
       width: min(100%, 70rem);
+      
     `}
 
     ${media.lessThan("small")`
@@ -66,7 +67,6 @@ export const PostImage = styled.div`
 
 export const NextPreviowsPosts = styled.div`
   ${({ theme }) => css`
-    max-width: 70rem;
     height: 16rem;
     border-top: 1px solid ${theme.colors.gray100};
     border-bottom: 1px solid ${theme.colors.gray100};
@@ -77,15 +77,15 @@ export const NextPreviowsPosts = styled.div`
 
     ${media.lessThan("medium")`
       flex-direction: column;
-      height: 30rem;
+      height: 100%;
     `}
 
     div {
-      width: 52.6rem;
       height: 100%;
 
       padding: ${theme.spacings.xs} 0;
       display: flex;
+      align-items: center;
       flex-direction: column;
 
       ${media.lessThan("medium")`
@@ -100,43 +100,42 @@ export const NextPreviowsPosts = styled.div`
         color: ${theme.colors.gray300};
         margin-bottom: ${theme.spacings.xs};
       }
+
+      a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+
+        strong {
+          max-width: 30rem;
+          font-weight: ${theme.font.weightRegular};
+          color: ${theme.colors.yellow500};
+          margin: 0 ${theme.spacings.xs};
+        }
+
+        svg {
+          width: 34px;
+          height: 34px;
+          color: ${theme.colors.yellow500};
+        }
+
+        &:hover {
+          strong {
+            color: ${theme.colors.darkBlue};
+            transition: color 0.4s;
+          }
+
+          svg {
+            color: ${theme.colors.darkBlue};
+            transition: color 0.4s;
+          }
+        }
+      }
     }
 
     div + div {
       text-align: right;
       border-right: none;
-    }
-
-    a {
-      flex: 1;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-
-      &:hover {
-        strong {
-          color: ${theme.colors.darkBlue};
-          transition: color 0.4s;
-        }
-
-        svg {
-          color: ${theme.colors.darkBlue};
-          transition: color 0.4s;
-        }
-      }
-
-      strong {
-        max-width: 30rem;
-        font-weight: ${theme.font.weightRegular};
-        color: ${theme.colors.yellow500};
-        margin: 0 ${theme.spacings.xs};
-      }
-
-      svg {
-        width: 34px;
-        height: 34px;
-        color: ${theme.colors.yellow500};
-      }
     }
   `}
 `;

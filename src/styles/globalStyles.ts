@@ -38,10 +38,10 @@ export default createGlobalStyle`
        url('/fonts/nunito-v16-latin-900.woff') format('woff'); /* Chrome 6+, Firefox 3.6+, IE 9+, Safari 5.1+ */
 }
 
-  *{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+  * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 
   html{
@@ -49,6 +49,7 @@ export default createGlobalStyle`
   }
 
   html,body, #__next {
+    min-width: 100%;
     height: 100%;
   }
 

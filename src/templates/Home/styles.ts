@@ -1,9 +1,7 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
-export const Wrapper = styled.div`
-  width: max(100%, 70rem);
-`;
+export const Wrapper = styled.div``;
 
 export const Main = styled.main`
   ${({ theme }) => css`

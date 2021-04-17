@@ -11,6 +11,7 @@ import { getFormatDate } from "util/getFormatDate";
 import { Header } from "components/Header";
 import { Content, ContentProps } from "components/Content";
 import { RichText } from "prismic-dom";
+import { Container } from "components/Container";
 import * as S from "./styles";
 
 export interface PostProps {
@@ -67,9 +68,10 @@ export const TemplatePost = ({
   const readingTime = Math.round(totalWords / 90);
 
   return (
-    <S.Container>
+    <S.Wrapper>
       <Header />
-      <S.Wrapper>
+
+      <S.Main>
         <h1>{title}</h1>
 
         <Link href={linkauthor} passHref>
@@ -120,7 +122,7 @@ export const TemplatePost = ({
         </S.NextPreviowsPosts>
 
         <h3>Comentarios</h3>
-      </S.Wrapper>
-    </S.Container>
+      </S.Main>
+    </S.Wrapper>
   );
 };

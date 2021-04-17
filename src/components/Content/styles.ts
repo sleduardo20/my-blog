@@ -1,19 +1,15 @@
 import styled, { css } from "styled-components";
 import media from "styled-media-query";
 
-export const Container = styled.aside`
+export const Wrapper = styled.aside`
   ${({ theme }) => css`
-    max-width: 70rem;
-    height: max-content;
-    padding: 0 ${theme.spacings.xs};
-    margin: ${theme.spacings.xss} auto 0;
+    padding: 0 ${theme.spacings.sm};
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
 
     h2 {
-      width: 100%;
       align-items: flex-start;
       line-height: ${theme.font.lineHeight.md};
       margin-bottom: ${theme.spacings.lg};
@@ -23,48 +19,60 @@ export const Container = styled.aside`
 
 export const Body = styled.div`
   ${({ theme }) => css`
-    width: max(100%, 70rem);
-    padding: ${theme.spacings.sm};
+   
+      p,li {
+        text-align: justify;
+        font-weight: ${theme.font.weightLight};
+        line-height: ${theme.font.lineHeight.sm};
+        margin-bottom: ${theme.spacings.sm};
+      }
 
-    p,
-    li {
-      text-align: justify;
-      font-weight: ${theme.font.weightLight};
-      line-height: ${theme.font.lineHeight.sm};
-      margin-bottom: ${theme.spacings.sm};
-    }
+      ul, ol {
+        
+        list-style: disc;
+        list-style-image: none;
+      }
 
-    ul,
-    ol {
-      padding: ${theme.spacings.md} ${theme.spacings.xlg};
-      list-style: disc;
-      list-style-image: none;
-    }
+      pre {
+        white-space: pre-wrap;
+        word-break: keep-all;
+        font-size: ${theme.font.size.xsm};
+        font-weight: ${theme.font.weightLight};
+        margin: ${theme.spacings.xs} 0;
+        background: ${theme.colors.gray100};
+        border-radius: 4px;
+        padding: ${theme.spacings.xss};
 
-    pre {
-      overflow-x: scroll;
-      font-size: ${theme.font.size.xsm};
-      font-weight: ${theme.font.weightLight};
-      margin: ${theme.spacings.xs} auto;
-      background: ${theme.colors.gray100};
-      border-radius: 4px;
-      padding: ${theme.spacings.sm};
+        ${media.lessThan("medium")`
+          font-size: ${theme.font.size.sm};
+          word-break: break-all;
+        `}
+      }
 
-      ${media.lessThan("medium")`
-        font-size: ${theme.font.size.sm};
-      `}
-    }
-
-    a {
-      color: ${theme.colors.lightBlue};
+      a {
+        display:inline-block;
+        word-break: break-all;
+        color: ${theme.colors.lightBlue};
+      }
     }
   `}
 `;
 
-export const Figure = styled.div`
+export const Figure = styled.figure`
   ${({ theme }) => css`
-    display: block;
     margin: ${theme.spacings.xlg} 0;
+
+    ${media.lessThan("medium")`
+      width: 100%;
+      max-width: 30rem;
+    `}
+
+    img {
+      width: 100%;
+      background-size: contain;
+      background-position: center;
+    }
+
     .post-image {
       border-radius: 8px;
     }

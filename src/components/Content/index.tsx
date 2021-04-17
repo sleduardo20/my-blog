@@ -1,4 +1,3 @@
-import Image from "next/image";
 import { RichText } from "prismic-dom";
 
 import * as S from "./styles";
@@ -22,16 +21,19 @@ export interface ContentProps {
 
 export const Content = ({ heading, body, imagecontent }: ContentProps) => {
   return (
-    <S.Container>
+    <S.Wrapper>
       {!!heading && <h2>{heading}</h2>}
       <S.Body dangerouslySetInnerHTML={{ __html: RichText.asHtml(body) }} />
-      <S.Figure>
-        <img
-          className="post-image"
-          src={imagecontent.url}
-          alt={imagecontent.alt}
-        />
-      </S.Figure>
-    </S.Container>
+
+      {!!imagecontent && (
+        <S.Figure>
+          <img
+            className="post-image"
+            src={imagecontent.url}
+            alt={imagecontent.alt}
+          />
+        </S.Figure>
+      )}
+    </S.Wrapper>
   );
 };
