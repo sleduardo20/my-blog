@@ -47,5 +47,6 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
       srcBanner: banner,
       cards,
     },
+    revalidate: 60,
   };
 };

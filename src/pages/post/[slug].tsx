@@ -70,5 +70,6 @@ export const getStaticProps: GetStaticProps = async ({ params }: Params) => {
       previousPost,
       nextPost,
     },
+    revalidate: 60 * 60 * 24, // 24 hs
   };
 };
