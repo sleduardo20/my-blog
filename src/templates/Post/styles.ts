@@ -68,12 +68,13 @@ export const PostImage = styled.div`
 export const NextPreviowsPosts = styled.div`
   ${({ theme }) => css`
     height: 16rem;
+    width: 100%;
     border-top: 1px solid ${theme.colors.gray100};
     border-bottom: 1px solid ${theme.colors.gray100};
     display: flex;
     align-items: center;
     justify-content: space-between;
-    margin: ${theme.spacings.xxlg} auto;
+    margin: ${theme.spacings.xlg} auto;
 
     ${media.lessThan("medium")`
       flex-direction: column;
@@ -81,8 +82,6 @@ export const NextPreviowsPosts = styled.div`
     `}
 
     div {
-      height: 100%;
-
       padding: ${theme.spacings.xs} 0;
       display: flex;
       align-items: center;

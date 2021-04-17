@@ -1,9 +1,7 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/dist/client/router";
-
 import { useEffect, useState } from "react";
-
 import { RiArrowLeftSLine, RiArrowRightSLine } from "react-icons/ri";
 
 import { getFormatDate } from "util/getFormatDate";
@@ -11,7 +9,8 @@ import { getFormatDate } from "util/getFormatDate";
 import { Header } from "components/Header";
 import { Content, ContentProps } from "components/Content";
 import { RichText } from "prismic-dom";
-import { Container } from "components/Container";
+
+import { Comments } from "components/Comments";
 import * as S from "./styles";
 
 export interface PostProps {
@@ -120,9 +119,9 @@ export const TemplatePost = ({
             </div>
           )}
         </S.NextPreviowsPosts>
-
         <h3>Comentarios</h3>
       </S.Main>
+      <Comments />
     </S.Wrapper>
   );
 };
