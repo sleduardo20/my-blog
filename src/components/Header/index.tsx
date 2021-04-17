@@ -14,9 +14,8 @@ export const Header = () => {
           <S.Logo>
             <Image
               src="/img/logo.svg"
-              width={188}
-              height={47}
-              layout="responsive"
+              layout="fill"
+              objectFit="contain"
               alt="logo eduardo lima"
             />
           </S.Logo>
