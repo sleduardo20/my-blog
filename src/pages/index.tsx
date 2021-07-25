@@ -39,6 +39,7 @@ export const getStaticProps: GetStaticProps<HomeProps> = async () => {
       subtitle: card.data.subtitle,
       img: card.data.imagepost,
       publisher: card.first_publication_date || "",
+      content: card.data.content
     })
   );
 

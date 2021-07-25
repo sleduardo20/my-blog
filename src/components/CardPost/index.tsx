@@ -4,6 +4,9 @@ import Image from "next/image";
 import { getFormatDate } from "../../util/getFormatDate";
 
 import * as S from "./styles";
+import { ContentProps } from "components/Content";
+
+import { useTimeRead } from "hooks/useTimeRead";
 
 export interface CardPostProps {
   slug?: string;
@@ -12,6 +15,7 @@ export interface CardPostProps {
   author: string;
   publisher: string;
   img: { url: string };
+  content: ContentProps[];
 }
 
 export const CardPost = ({
@@ -21,7 +25,11 @@ export const CardPost = ({
   subtitle,
   author,
   publisher,
+  content,
 }: CardPostProps) => {
+
+  const { readingTime } = useTimeRead({content});
+
   return (
     <S.Wrapper>
       <S.Colluns>
@@ -44,7 +52,7 @@ export const CardPost = ({
 
             <div>
               <span>{author}</span>
-              <span>{getFormatDate(publisher)} | Leitura 4 min</span>
+              <span>{getFormatDate(publisher)} | Leitura {readingTime} min</span>
             </div>
           </S.CollunInfo>
         </Link>

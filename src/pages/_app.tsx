@@ -9,13 +9,13 @@ import theme from "../styles/theme";
 
 function App({ Component, pageProps }: AppProps) {
   return (
-    <ThemeProvider theme={theme}>
-      <Head>
-        <title>Blog | Eduardo Lima</title>
-      </Head>
-      <Component {...pageProps} />
-      <GlobalStyles />
-    </ThemeProvider>
+      <ThemeProvider theme={theme}>
+        <Head>
+          <title>Blog | Eduardo Lima</title>
+          </Head>
+        <Component {...pageProps} />
+        <GlobalStyles />
+      </ThemeProvider>
   );
 }
 
